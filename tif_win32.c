@@ -278,7 +278,7 @@ TIFFOpen(const char* name, const char* mode)
 		default:			return ((TIFF*)0);
 	}
         
-	fd = (thandle_t)CreateFileA(name,
+	fd = (thandle_t)CreateFile2(name,
 		(m == O_RDONLY)?GENERIC_READ:(GENERIC_READ | GENERIC_WRITE),
 		FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, dwMode,
 		(m == O_RDONLY)?FILE_ATTRIBUTE_READONLY:FILE_ATTRIBUTE_NORMAL,
@@ -319,7 +319,7 @@ TIFFOpenW(const wchar_t* name, const char* mode)
 		default:			return ((TIFF*)0);
 	}
 
-	fd = (thandle_t)CreateFileW(name,
+	fd = (thandle_t)CreateFile2(name,
 		(m == O_RDONLY)?GENERIC_READ:(GENERIC_READ|GENERIC_WRITE),
 		FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, dwMode,
 		(m == O_RDONLY)?FILE_ATTRIBUTE_READONLY:FILE_ATTRIBUTE_NORMAL,
